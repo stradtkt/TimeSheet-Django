@@ -35,13 +35,20 @@ def register(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
-        username = request.POST['username']
-        location = request.POST['location']
         password = request.POST['password']
         hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
-        User.objects.create(first_name=first_name, last_name=last_name, location=location, username=username, email=email, password=hashed_pw)
+        User.objects.create(first_name=first_name, last_name=last_name, email=email, password=hashed_pw)
         return redirect('/')
 
 def logout(request):
     request.session.clear()
     return redirect('/')
+
+def clock_in(request):
+    return render(request, 'dashboard/clock-in.html')
+
+def clock_out(request):
+    return render(request, 'dashboard/clock-out.html')
+
+def daily_report(request):
+    return render(request, 'dashboard/daily-report.html')
