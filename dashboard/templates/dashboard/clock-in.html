@@ -4,10 +4,121 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-3 col-md-3">
-                <div class=""></div>
+                <div class="top-name">
+                    <p>Kevin Stradtman</p>
+                </div>
+                <div class="clock-time">
+                    <form action="clock-in-time" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="clocked_in">
+                        <input type="submit" class="btn btn-success btn-block">
+                    </form>
+                </div>
+                <div class="points">
+                    <h3>My Points</h3>
+                    <h1>91</h1>
+                    <hr>
+                    <h3>Leader Points</h3>
+                    <h1>93</h1>
+                </div>
             </div>
             <div class="col-9 col-md-9">
-
+                <form action="filter-timestamp" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <select name="week" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="employee" class="form-control">
+                            <option value="kevin stradtman" class="disabled">Kevin Stradtman</option>
+                        </select>
+                    </div>
+                </form>
+                <table class="table table-hover text-center mt-5 mb-5">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th>Date</th>
+                            <th>Clock-In</th>
+                            <th>Clock-Out</th>
+                            <th>Hours</th>
+                            <th>Points</th>
+                            <th>Task Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jan 1 2018</td>
+                            <td>8:00 A.M.</td>
+                            <td>5:00 P.M.</td>
+                            <td>9</td>
+                            <td>10.5</td>
+                            <td>Worked on the backend servers</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1 2018</td>
+                            <td>8:00 A.M.</td>
+                            <td>5:00 P.M.</td>
+                            <td>9</td>
+                            <td>10.5</td>
+                            <td>Worked on the backend servers</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1 2018</td>
+                            <td>8:00 A.M.</td>
+                            <td>5:00 P.M.</td>
+                            <td>9</td>
+                            <td>10.5</td>
+                            <td>Worked on the backend servers</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1 2018</td>
+                            <td>8:00 A.M.</td>
+                            <td>5:00 P.M.</td>
+                            <td>9</td>
+                            <td>10.5</td>
+                            <td>Worked on the backend servers</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1 2018</td>
+                            <td>8:00 A.M.</td>
+                            <td>5:00 P.M.</td>
+                            <td>9</td>
+                            <td>10.5</td>
+                            <td>Worked on the backend servers</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1 2018</td>
+                            <td>8:00 A.M.</td>
+                            <td>5:00 P.M.</td>
+                            <td>9</td>
+                            <td>10.5</td>
+                            <td>Worked on the backend servers</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1 2018</td>
+                            <td>8:00 A.M.</td>
+                            <td>5:00 P.M.</td>
+                            <td>9</td>
+                            <td>10.5</td>
+                            <td>Worked on the backend servers</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 1 2018</td>
+                            <td>8:00 A.M.</td>
+                            <td>5:00 P.M.</td>
+                            <td>9</td>
+                            <td>10.5</td>
+                            <td>Worked on the backend servers</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

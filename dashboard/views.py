@@ -56,3 +56,9 @@ def clock_out(request):
 
 def daily_report(request):
     return render(request, 'dashboard/daily-report.html')
+
+def clocked_in_time(request, id):
+    user = User.objects.get(id=id)
+
+
+
