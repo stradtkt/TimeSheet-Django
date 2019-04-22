@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
-from django.core.validators import validate_email
-from django.core.exceptions import ValidationError
 from django.contrib import messages
 from .models import *
 import bcrypt
 
 
 def index(request):
-	return render(request, "dashboard/index.html")
+    return render(request, "dashboard/index.html")
+
 
 def login(request):
     email = request.POST['email']
@@ -17,13 +16,14 @@ def login(request):
         is_pass = bcrypt.checkpw(password.encode('utf-8'), user[0].password.encode('utf-8'))
         if is_pass:
             request.session['id'] = user[0].id
-            return redirect('/dashboard')
+            return redirect('/clock-in')
         else:
             messages.error(request, "Incorrect email and/or password")
             return redirect('/')
     else:
         messages.error(request, "User does not exist")
     return redirect('/')
+
 
 def register(request):
     errors = User.objects.validate_user(request.POST)
@@ -40,15 +40,19 @@ def register(request):
         User.objects.create(first_name=first_name, last_name=last_name, email=email, password=hashed_pw)
         return redirect('/')
 
+
 def logout(request):
     request.session.clear()
     return redirect('/')
 
+
 def clock_in(request):
     return render(request, 'dashboard/clock-in.html')
 
+
 def clock_out(request):
     return render(request, 'dashboard/clock-out.html')
+
 
 def daily_report(request):
     return render(request, 'dashboard/daily-report.html')
